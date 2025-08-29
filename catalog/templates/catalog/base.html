@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Skystore{% endblock %}</title>
+    <link href="{% static 'bootstrap-5.3.7/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        .pagination {
+            margin: 20px 0;
+        }
+        .page-link {
+            color: #3498db;
+            border: 1px solid #dee2e6;
+            margin: 0 2px;
+        }
+        .page-item.active .page-link {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+        .page-link:hover {
+            background-color: #f8f9fa;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>{% include 'catalog/includes/menu.html' %}</header>
+    <main>{% block content %}{% endblock %}</main>
+    <footer class="text-center py-3">© 2023 Магазин</footer>
+</body>
+</html>
