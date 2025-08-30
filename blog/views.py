@@ -37,7 +37,7 @@ class BlogPostDetailView(DetailView):
         subject = f'Поздравление! Статья "{post.title}" достигла 100 просмотров!'
         message = f'Статья "{post.title}" достигла 100 просмотров! Поздравляем!'
         from_email = settings.DEFAULT_FROM_EMAIL
-        recipient_list = ['your-email@example.com']  # Замените на ваш email
+        recipient_list = [settings.ADMIN_EMAIL]  # Используем настройку из settings.py
 
         send_mail(subject, message, from_email, recipient_list)
 
