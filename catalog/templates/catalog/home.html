@@ -8,15 +8,15 @@
 
 <div class="container">
     <div class="row">
-        {% for product in latest_products %}
+        {% for product in products.object_list %}
         <div class="col-4 mb-4">
             <div class="card h-100">
                 <div class="card-header">
                     <h5 class="card-title">{{ product.name }}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ product.description|truncatechars:100 }}</p>
-                    <p class="card-text"><strong>Цена: {{ product.price }} руб.</strong></p>
+                    <p class="card-text">{{ product.description|default:"Описание отсутствует"|truncatechars:100 }}</p>
+                    <p class="card-text"><strong>Цена: {{ product.price|floatformat:"0" }} руб.</strong></p>
                     <p class="card-text"><small class="text-muted">Категория: {{ product.category.name }}</small></p>
                 </div>
                 <div class="card-footer">

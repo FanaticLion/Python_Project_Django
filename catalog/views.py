@@ -1,8 +1,9 @@
+# catalog/views.py
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import ContactForm , ProductForm
-from .models import Product, Contact  # Добавлен импорт моделей
+from .forms import ContactForm, ProductForm
+from .models import Product, Contact
 from django.shortcuts import redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -63,7 +64,6 @@ def contacts(request):
     return render(request, 'catalog/contacts.html', context)
 
 
-# catalog/views.py
 def product_detail(request, pk):
     product = get_object_or_404(Product, id=pk)
     return render(request, 'catalog/product_detail.html', {'product': product})
